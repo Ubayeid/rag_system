@@ -3,16 +3,18 @@ from typing import List, Dict, Any, Optional
 import chromadb
 from chromadb.config import Settings
 from langchain_community.vectorstores import Chroma
+from langchain_core.embeddings import Embeddings
 from langchain_openai import OpenAIEmbeddings
-from langchain.schema import Document
+from langchain_core.documents import Document
 from config import config
 
 class VectorStore:
     def __init__(self):
-        self.embeddings = OpenAIEmbeddings(
-            openai_api_key=config.OPENAI_API_KEY,
-            model=config.EMBEDDING_MODEL
-        )
+        embedding_kwargs = {
+            "model": config.EMBEDDING_MODEL,
+            "openai_api_key": config.OPENAI_API_KEY
+        }
+        self.embeddings = OpenAIEmbeddings(**embedding_kwargs)
         self.vector_db = None
         self.initialize_db()
 
