@@ -1,8 +1,8 @@
 from typing import List, Dict, Any, Optional
-from langchain.chat_models import ChatOpenAI
-from langchain.chains import RetrievalQA
-from langchain.prompts import PromptTemplate
-from langchain.schema import Document
+from langchain_community.chat_models import ChatOpenAI
+from langchain.chains.retrieval_qa.base import RetrievalQA
+from langchain_core.prompts import PromptTemplate
+from langchain_core.documents import Document
 from config import config
 from vector_store import VectorStore
 from knowledge_gap_detector import KnowledgeGapDetector
