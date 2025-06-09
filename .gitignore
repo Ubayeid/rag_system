@@ -39,6 +39,8 @@ logs/
 *.log
 *.db
 *.sqlite3
+entity_maps/
+knowledge_graphs/
 
 # Jupyter Notebook
 .ipynb_checkpoints
