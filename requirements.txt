@@ -1,0 +1,46 @@
+# Zotero to Markdown Converter - Requirements
+# Install with: pip install -r requirements.txt
+
+# Core Zotero API client
+pyzotero>=1.5.0
+
+# PDF processing
+PyPDF2>=3.0.1
+PyMuPDF>=1.22.0  # for high-quality PDF text extraction
+
+# Document conversion
+pypandoc>=1.11
+mammoth>=1.6.0
+html2text>=2020.1.16  # for converting HTML to Markdown
+
+# Bibliography parsing
+bibtexparser>=1.4.0
+rispy>=0.7.0
+
+# html parsing
+beautifulsoup4>=4.12.0
+
+# Data processing
+pandas>=2.0.0
+requests>=2.31.0
+trafilatura 
+
+# NLP processing
+spacy>=3.7.2
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
+
+# XML processing (included in Python standard library)
+# xml.etree.ElementTree
+
+# JSON processing (included in Python standard library)
+# json
+
+# File system operations (included in Python standard library)
+# pathlib
+# os
+
+# Date/time handling (included in Python standard library)
+# datetime
+
+# Added from the code block
+docx2txt==0.8
