@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\mduba\Development\projects\ai\nlp\RAG\ciroh_x\rag_env"
+VIRTUAL_ENV="C:\Users\mduba\Development\projects\ai\hybrid\RAG\rag_system\rag_env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

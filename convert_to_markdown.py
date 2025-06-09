@@ -72,8 +72,8 @@ def convert_pdf_to_markdown(pdf_path, output_path):
 
 def main():
     # Define paths
-    source_dir = r"C:\Users\mduba\Development\projects\ai\nlp\RAG\ciroh_x\documents"
-    output_dir = r"C:\Users\mduba\Development\projects\ai\nlp\RAG\ciroh_x\markdown"
+    source_dir = r"C:\Users\mduba\Development\projects\ai\hybrid\RAG\rag_system\documents"
+    output_dir = r"C:\Users\mduba\Development\projects\ai\hybrid\RAG\rag_system\markdown"
     
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)

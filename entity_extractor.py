@@ -138,8 +138,8 @@ class EntityExtractor:
 
 def main():
     # Define paths
-    json_dir = r"C:\Users\mduba\Development\projects\ai\nlp\RAG\ciroh_x\json_output"
-    output_dir = r"C:\Users\mduba\Development\projects\ai\nlp\RAG\ciroh_x\entity_extractions"
+    json_dir = r"C:\Users\mduba\Development\projects\ai\hybrid\RAG\rag_system\json_output"
+    output_dir = r"C:\Users\mduba\Development\projects\ai\hybrid\RAG\rag_system\entity_extractions"
     
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)

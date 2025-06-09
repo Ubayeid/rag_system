@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\mduba\Development\projects\ai\nlp\RAG\ciroh_x\rag_env
+set VIRTUAL_ENV=C:\Users\mduba\Development\projects\ai\hybrid\RAG\rag_system\rag_env
 
 if not defined PROMPT set PROMPT=$P$G
 

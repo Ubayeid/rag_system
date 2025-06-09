@@ -8,7 +8,7 @@ NEO4J_USER = "neo4j"
 NEO4J_PASSWORD = "12345678"
 
 # Path to your knowledge graph JSON files
-KG_DIR = r"C:\Users\mduba\Development\projects\ai\nlp\RAG\ciroh_x\knowledge_graphs"
+KG_DIR = r"C:\Users\mduba\Development\projects\ai\hybrid\RAG\rag_system\knowledge_graphs"
 
 def import_kg_to_neo4j(driver, kg_path):
     with open(kg_path, 'r', encoding='utf-8') as f:

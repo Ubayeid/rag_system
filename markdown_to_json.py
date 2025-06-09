@@ -110,8 +110,8 @@ class DocumentProcessor:
 
 def main():
     # Define paths
-    markdown_dir = r"C:\Users\mduba\Development\projects\ai\nlp\RAG\ciroh_x\markdown"
-    output_dir = r"C:\Users\mduba\Development\projects\ai\nlp\RAG\ciroh_x\json_output"
+    markdown_dir = r"C:\Users\mduba\Development\projects\ai\hybrid\RAG\rag_system\markdown"
+    output_dir = r"C:\Users\mduba\Development\projects\ai\hybrid\RAG\rag_system\json_output"
     
     # Create output directory if it doesn't exist
     os.makedirs(output_dir, exist_ok=True)

@@ -103,8 +103,8 @@ class RelationshipIdentifier:
         }
 
 def main():
-    entity_dir = r"C:\Users\mduba\Development\projects\ai\nlp\RAG\ciroh_x\entity_extractions"
-    output_dir = r"C:\Users\mduba\Development\projects\ai\nlp\RAG\ciroh_x\knowledge_graphs"
+    entity_dir = r"C:\Users\mduba\Development\projects\ai\hybrid\RAG\rag_system\entity_extractions"
+    output_dir = r"C:\Users\mduba\Development\projects\ai\hybrid\RAG\rag_system\knowledge_graphs"
     os.makedirs(output_dir, exist_ok=True)
     identifier = RelationshipIdentifier()
 

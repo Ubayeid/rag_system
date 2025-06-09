@@ -33,14 +33,17 @@ ENV/
 *.swo
 
 # Project specific
-documents/
 vector_store/
+documents/
+markdown/
+json_output/
+entity_maps/
+entity_extractions/
+knowledge_graphs/
 logs/
 *.log
 *.db
 *.sqlite3
-entity_maps/
-knowledge_graphs/
 
 # Jupyter Notebook
 .ipynb_checkpoints
