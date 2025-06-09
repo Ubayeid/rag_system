@@ -1,6 +1,14 @@
-# Document to Markdown Converter
+# RAG (Retrieval-Augmented Generation) System
 
-This tool converts DOCX and PDF documents to Markdown format. It automatically processes all documents placed in the `documents` folder and saves the converted markdown files in the `markdown_output` folder.
+This project implements a Retrieval-Augmented Generation (RAG) system that combines document retrieval with language model generation to provide more accurate and contextually relevant responses.
+
+## Features
+
+- Document ingestion and processing
+- Vector storage and retrieval
+- Integration with language models
+- Query processing and response generation
+- Support for multiple document formats (PDF, DOCX, TXT)
 
 ## Setup
 
@@ -9,31 +17,51 @@ This tool converts DOCX and PDF documents to Markdown format. It automatically p
 pip install -r requirements.txt
 ```
 
-2. Place your documents (DOCX or PDF files) in the `documents` folder.
+2. Set up your environment variables:
+```bash
+cp .env.example .env
+```
+Then edit the `.env` file with your configuration settings.
+
+## Project Structure
+
+- `documents/`: Directory for storing source documents
+- `vector_store/`: Directory for storing document embeddings
+- `src/`: Source code directory
+  - `document_processor.py`: Handles document ingestion and processing
+  - `embedding_generator.py`: Generates embeddings for documents
+  - `retriever.py`: Implements document retrieval logic
+  - `generator.py`: Handles response generation
+  - `utils.py`: Utility functions
 
 ## Usage
 
-Run the script:
+1. Place your documents in the `documents` folder
+2. Run the document processor:
 ```bash
-python document_processor.py
+python src/document_processor.py
+```
+3. Start the RAG system:
+```bash
+python src/main.py
 ```
 
-The script will:
-1. Create a `documents` folder if it doesn't exist
-2. Create a `markdown_output` folder if it doesn't exist
-3. Process all DOCX and PDF files in the `documents` folder
-4. Convert them to markdown format
-5. Save the converted files in the `markdown_output` folder
+## Configuration
 
-## Supported File Types
-
-- DOCX files (Microsoft Word documents)
-- PDF files
-
-## Output
-
-The converted markdown files will be saved in the `markdown_output` folder with the same name as the original file but with a `.md` extension.
+The system can be configured through the `.env` file:
+- Model settings
+- Vector store parameters
+- API keys and endpoints
+- Processing options
 
 ## Error Handling
 
-The script includes error handling and will print messages for any files that fail to process. Check the console output for any error messages. 
+The system includes comprehensive error handling and logging. Check the logs directory for detailed information about any issues that occur during processing.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details. 
