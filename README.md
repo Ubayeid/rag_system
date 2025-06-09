@@ -1,15 +1,35 @@
 # RAG (Retrieval-Augmented Generation) System
 
-This project implements a Retrieval-Augmented Generation (RAG) system that combines document retrieval with language model generation to provide more accurate and contextually relevant responses.
+This project implements a Retrieval-Augmented Generation (RAG) system that combines document retrieval, entity extraction, relationship identification, and knowledge graph construction to provide structured, contextually relevant information from unstructured documents.
 
 ## Features
 
-- Document ingestion and processing
-- Vector storage and retrieval
-- Integration with language models
-- Query processing and response generation
-- Support for multiple document formats (PDF, DOCX, TXT)
-- Entity mapping and knowledge graph generation
+- Document ingestion and conversion (PDF, DOCX to Markdown)
+- Markdown to structured JSON conversion
+- Entity extraction with context and sentiment analysis
+- Relationship identification between entities
+- Knowledge graph generation and import to Neo4j
+- Modular pipeline for end-to-end processing
+- Support for multiple document formats (PDF, DOCX)
+- Comprehensive error handling and logging
+
+## Project Structure
+
+- `documents/`: Source documents (PDF, DOCX)
+- `markdown/`: Markdown files generated from source documents
+- `json_output/`: Structured JSON files generated from markdown
+- `entity_extractions/`: Extracted entities with context and statistics
+- `knowledge_graphs/`: Knowledge graph JSON files
+- `src/`: (Not used; scripts are in the root directory)
+- `archived/`: Older or experimental scripts
+- Main scripts:
+  - `convert_to_markdown.py`: Converts DOCX/PDF to Markdown
+  - `markdown_to_json.py`: Converts Markdown to structured JSON
+  - `entity_extractor.py`: Extracts entities and context from JSON
+  - `relationship_identifier.py`: Identifies relationships between entities
+  - `import_to_neo4j.py`: Imports knowledge graph to Neo4j
+  - `run_pipeline.py`: Runs the full pipeline in sequence
+  - `test_dependencies.py`: Verifies environment and key dependencies
 
 ## Setup
 
@@ -18,58 +38,54 @@ This project implements a Retrieval-Augmented Generation (RAG) system that combi
 pip install -r requirements.txt
 ```
 
-2. Set up your environment variables:
+2. Install the SpaCy English model:
 ```bash
-cp .env.example .env
+python -m spacy download en_core_web_sm
 ```
-Then edit the `.env` file with your configuration settings.
 
-## Project Structure
-
-- `documents/`: Directory for storing source documents
-- `vector_store/`: Directory for storing document embeddings
-- `entity_maps/`: Directory for storing entity mappings (not tracked in git due to size)
-- `knowledge_graphs/`: Directory for storing knowledge graphs (not tracked in git due to size)
-- `src/`: Source code directory
-  - `document_processor.py`: Handles document ingestion and processing
-  - `embedding_generator.py`: Generates embeddings for documents
-  - `retriever.py`: Implements document retrieval logic
-  - `generator.py`: Handles response generation
-  - `utils.py`: Utility functions
+3. (Optional) Test your environment:
+```bash
+python test_dependencies.py
+```
 
 ## Usage
 
-1. Place your documents in the `documents` folder
-2. Run the document processor:
+### 1. Prepare Documents
+Place your source documents (PDF, DOCX) in the `documents/` folder.
+
+### 2. Run the Pipeline
+To process all documents through the full pipeline:
 ```bash
-python src/document_processor.py
+python run_pipeline.py
 ```
-3. Start the RAG system:
+This will:
+- Convert documents to Markdown (`convert_to_markdown.py`)
+- Convert Markdown to JSON (`markdown_to_json.py`)
+- Extract entities (`entity_extractor.py`)
+- Identify relationships (`relationship_identifier.py`)
+- Import the knowledge graph to Neo4j (`import_to_neo4j.py`)
+
+### 3. Explore Outputs
+- `markdown/`: Contains Markdown versions of your documents
+- `json_output/`: Contains structured JSON representations
+- `entity_extractions/`: Contains extracted entities and statistics
+- `knowledge_graphs/`: Contains knowledge graph JSON files
+
+### 4. Import to Neo4j
+Ensure Neo4j is running and update credentials in `import_to_neo4j.py` if needed. Then run:
 ```bash
-python src/main.py
+python import_to_neo4j.py
 ```
 
 ## Configuration
 
-The system can be configured through the `.env` file:
-- Model settings
-- Vector store parameters
-- API keys and endpoints
-- Processing options
+- Update paths and Neo4j credentials in scripts as needed for your environment.
+- The `.env` file can be used for additional configuration (see `.env.example`).
 
 ## Data Storage
 
 The following directories are not tracked in git due to their potentially large size:
-- `entity_maps/`: Contains JSON files mapping entities from documents
-- `knowledge_graphs/`: Contains JSON files representing knowledge graphs
-- `documents/`: Contains source documents
-- `vector_store/`: Contains document embeddings
-
-To use the system, you'll need to generate these files locally or obtain them from a separate source.
-
-## Error Handling
-
-The system includes comprehensive error handling and logging. Check the logs directory for detailed information about any issues that occur during processing.
+- `entity_maps/`, `knowledge_graphs/`, `documents/`, `vector_store/`
 
 ## Contributing
 
